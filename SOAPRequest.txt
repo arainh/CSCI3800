@@ -1,0 +1,101 @@
+HTTP Request Header:
+
+POST http://www.webservicex.net/geoipservice.asmx HTTP/1.1
+
+   - HTTP request verb POST with IP address of www.bbc.co.uk
+     sends this data over to the server and requests a GET for
+     the data associated with that information.
+
+Accept-Encoding: gzip, deflate
+
+   - This request lists the content-coding that is acceptable 
+     to be received from the response.
+
+Content-Type: text/xml; charset=UTF-8
+
+   - This tells the server what media type is being sent to
+      it through the POST request. In this case it is text/xml
+      with UTF-8 character encoding for Unicode.
+
+SOAPAction: "http://www.webservicex.net/GetGeoIP"
+
+   - Lets the server know that this is a SOAP HTTP request
+     intended for the specific URI as the expected resource
+     the request wants to communicate with.
+
+Content-Length: 317
+
+   - The size of this HTTP request message to the server
+      is 317 octets.
+
+Host: www.webservice.net
+
+   - Specifies the internet host that the resource is located
+     or the gateway to the resource being requested. 
+
+Connection: Keep-Alive
+
+   - Use persistent connection that will not automatically close
+     once the TCP handshake is complete. Keep it open so that
+     multiple messages can continue to be sent across without
+     starting a new connection.
+
+User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
+
+   - What software and version the user agent is running, to let
+     the server know for informational purposes.
+
+
+
+HTTP Response Header:
+
+X-AspNet-Version	4.0.30319
+
+   - Information about the web server and what version of
+     asp.net it is using
+
+Vary			Accept-Encoding
+
+   - The server response is indicating that there entity-body
+     has multiple sources and can give different content to 
+     clients that accept certain types of content-coding.
+
+Date			Sun, 09 Feb 2015 04:21:53 GMT
+
+   - Shows the date the response message was generated in
+     Greenwich Mean Time.
+
+Content-Length		403
+
+   - Sends the size of the response message in decimal octets.
+
+#status#		HTTP/1.1 200 OK
+
+   - The message sent to the server was successfully received 
+
+Content-Encoding	gzip
+
+   - This gives the type of content-coding the entity being 
+     sent back and what means of decoding the message is 
+     necessary to read and display the resource.
+
+Content-Type		text/xml; charset=utf-8
+
+   - Lists the type of media of the entity-body being sent
+     back to the recipient. In this case it is text/xml format
+     with character encoding UTF-8 for Unicode.
+
+Server			Microsoft-IIS/7.0
+
+   - Gives some information about the server that is sending
+     back the response and what software is running on it.
+
+X-Powered-By		ASP.NET
+
+   - Gives information about the web server. It runs ASP.NET
+
+Cache-Control		private, max-age=0
+
+   - This says that the message is intended for a single user
+     and cannot be cached by shared cache. And the age of the 
+     response must be immediate.
