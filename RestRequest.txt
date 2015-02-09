@@ -1,0 +1,101 @@
+April Hudspeth
+CSCI 3800 Web API
+Assignment One
+REST Request 
+
+
+HTTP Request Header:
+
+GET https://www.googleapis.com/books/v1/volumes?q=Turing HTTP/1.1
+
+  - Using the HTTP verb GET to request the resource listed as a 
+    URL from the server to get the data that is stored on that 
+    server.
+
+Accept-Encoding: gzip, deflate
+
+   - Lists the accepted content-codings for the response.
+
+Host: www.googleapis.com
+
+   - Specifies the host of the resource that is being requested and 
+     represents the name of the origin server. 
+
+Connection: Keep-Alive
+
+   - Says to reuse the HTTP connection on a single TCP handshake to 
+     send and receive multiple requests and responses.
+
+User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
+
+   - Apache is the user agent originating the request
+
+
+
+HTTP Response Header:
+
+ETag			"_rmWcTkH-s1QFjg9mC3Xel0FZSQ/otNkaJPtVmGzoRlE4oPVXqgGwy4
+
+   - The ETag provides the fingerprint of the resource provided by the 
+     URL, https://www.googleapis.com/books/v1/volumes?q=turing. 
+
+Content-Length		26982
+
+   - Gives the size of the entity-body in decimal number of octects.
+
+#status#		HTTP/1.1 200 OK
+
+   - Says that the request was sucessful.
+
+X-XSS-Protection	1; mode=block
+
+  - Enables cross-site scripting filter. Blocks malicious scripts that 
+    are sent to end users.
+
+Expires			Mon, 09 Feb 2015 04:33:01 GMT
+
+  - This says that on this day at this specific time, the response will
+    be stale.
+
+Alternate-Protocol	443:quic,p=0.02
+
+  - Says that SPDY is available for faster web browsing.
+
+Server			GSE
+
+  - The software the server uses is the Google Servlet Engine
+
+X-Content-Type-Options	nosniff
+
+  - prevents MIME-sniffing and exposure to malicious sites, by not
+    allowing information on the content-type to be exposed.
+
+Cache-Control		private, max-age=0, must-revalidate, no-transform
+
+  - The server is saying that the message is intended for only one user and
+    should not be cached with a shared cache. The age response cannot be 
+    greater than zero and the cache must verify that the stale documents 
+    are not expired and it does not convert the entity-body.
+
+X-Frame-Options		SAMEORIGIN
+
+  - Rendering can only be allowed if the origin matches.
+
+Vary			Origin
+
+  - Used to prevent caching of responses when resources are shared with
+    multiple origins.
+
+Vary			X-Origin
+
+Date			Mon, 09 Feb 2015 04:33:01 GMT
+
+  - A date time stamp of the request in Greenwich Mean Time.
+
+Content-Type		application/json; charset=UTF-8
+
+  - Tells what media type is being sent back in response to the GET
+    request. In this case the entity-body consists of json media type
+    in the character encoding UTF-8.
+
+
