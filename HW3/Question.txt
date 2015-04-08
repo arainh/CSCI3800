@@ -1,0 +1,5 @@
+One reason why OAuth tokens should not be handled in the main flow is that tokens are meant to expire after a certain
+amount of time has passed. The proxy is there to grant the client access by assigning a unique token they can then
+use as a Bearer header when requesting a resource from the server. When the token expires, and the client no longer has
+authorization, they can re-submit a request for another token by sending in their client ID and secret for verification. 
+If OAuth was handled in the main flow, then tokens would have to be a fixed value which would reduce security. 
