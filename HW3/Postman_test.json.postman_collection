@@ -1,0 +1,62 @@
+{
+	"id": "94e612b6-f72b-fb9f-dc51-16079d9f3a61",
+	"name": "Postman_test",
+	"description": "",
+	"order": [
+		"c70b98c9-d320-a1c8-6e05-d0a8b674573f",
+		"eb38a23c-5e7e-3ac6-7f13-dc550d7ba978"
+	],
+	"folders": [],
+	"timestamp": 1428527183981,
+	"synced": false,
+	"owner": "",
+	"subscribed": false,
+	"remoteLink": "",
+	"public": false,
+	"write": true,
+	"requests": [
+		{
+			"id": "c70b98c9-d320-a1c8-6e05-d0a8b674573f",
+			"headers": "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ImNsaWVudF9pZCJ9.FYaC1ByrNW51mKA_yKeoMraMwczZEYTWAVH1EFujRKk\n",
+			"url": "127.0.0.1:3000/oauth2",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "94e612b6-f72b-fb9f-dc51-16079d9f3a61",
+			"data": [],
+			"dataMode": "params",
+			"name": "127.0.0.1:3000/oauth2",
+			"description": "Testing OAuth security using hw3.js file",
+			"descriptionFormat": "html",
+			"time": 1428527183981,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"synced": false
+		},
+		{
+			"id": "eb38a23c-5e7e-3ac6-7f13-dc550d7ba978",
+			"headers": "",
+			"url": "127.0.0.1:3000/token",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "94e612b6-f72b-fb9f-dc51-16079d9f3a61",
+			"data": [],
+			"dataMode": "params",
+			"name": "127.0.0.1:3000/token",
+			"description": "Testing OAuth security using hw3.js file",
+			"descriptionFormat": "html",
+			"time": 1428527197330,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionOwner": 0,
+			"synced": false
+		}
+	]
+}
