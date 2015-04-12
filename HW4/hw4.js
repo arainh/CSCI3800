@@ -42,7 +42,10 @@ request(options, callback);
 //the url. Example: 
 //127.0.0.1:3000/create?name=Bridesmaids&debut=2011&actors=Kristen Wig, Mya Rudolf, Melissa McCarthy
 app.post('/create', function (req, res){
-	var options = {
+	if(!req.query.name || !req.query.debut || !req.query.actors) {
+    res.send('There was an error in creating the entity.');
+  } else {
+  var options = {
    	 	type: 'movies',
    	 	name: req.query.name,
    	 	debut: req.query.debut,
@@ -56,9 +59,22 @@ app.post('/create', function (req, res){
     	} else {
         //data will contain raw results from API call
         //New entity has been added to the collection
-        res.send(res.json(data));
+        var options = {
+          url: "https://api.usergrid.com/arainh/sandbox/movies"
+        };
+
+        //Make a get request with the specific query parameters to the
+        //Apigee BaaS database and pull up the results as the response.
+        function callback(error, response, body) {
+          if (!error && response.statusCode == 200) {
+            var info = JSON.parse(body);
+            res.send(info);
+          }
+        }
+        request(options, callback);
     	}
 	});	
+  }
 })
 
 //DELETE AN EXISTING ENTITY
@@ -82,7 +98,19 @@ app.delete('/delete', function (req, res) {
     			 } else {
         		  //The entity has been deleted
         		  movie = null;
-        		  res.send('Movie entity successfully deleted.'); 
+        		  var options = {
+                url: "https://api.usergrid.com/arainh/sandbox/movies"
+              };
+
+              //Make a get request with the specific query parameters to the
+              //Apigee BaaS database and pull up the results as the response.
+              function callback(error, response, body) {
+                if (!error && response.statusCode == 200) {
+                  var info = JSON.parse(body);
+                  res.send(info);
+                }
+              }
+              request(options, callback);
     			 }
 			    });
     	  }
