@@ -41,7 +41,7 @@ There are other queries and I use the syntax that is acceptable by Apigee.
 * select * where actors contains `<actor name>` and debut=`<year>` (lists all movies with matching debut
 and actor name)
 
-**To delete an entity or a list of entities**
+**To delete an entity**
 
 Use DELETE
 
