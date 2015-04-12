@@ -21,19 +21,19 @@ var client = new usergrid.client({
 //GET request and the results of that query will be returned. 
 app.get('/movies', function(req, res){
   
-  var options = {
-  	url: "https://api.usergrid.com/arainh/sandbox/" + req.originalUrl
-  };
+	var options = {
+  		url: "https://api.usergrid.com/arainh/sandbox/" + req.originalUrl
+  	};
 
-//Make a get request with the specific query parameters to the
-//Apigee BaaS database and pull up the results as the response.
-function callback(error, response, body) {
-  if (!error && response.statusCode == 200) {
-    var info = JSON.parse(body);
-    res.send(info);
-  }
-}
-request(options, callback);
+	//Make a get request with the specific query parameters to the
+	//Apigee BaaS database and pull up the results as the response.
+	function callback(error, response, body) {
+  		if (!error && response.statusCode == 200) {
+    		var info = JSON.parse(body);
+    		res.send(info);
+		}
+	}
+	request(options, callback);
   
 })
 
@@ -43,38 +43,38 @@ request(options, callback);
 //127.0.0.1:3000/create?name=Bridesmaids&debut=2011&actors=Kristen Wig, Mya Rudolf, Melissa McCarthy
 app.post('/create', function (req, res){
 	if(!req.query.name || !req.query.debut || !req.query.actors) {
-    res.send('There was an error in creating the entity.');
-  } else {
-  var options = {
-   	 	type: 'movies',
-   	 	name: req.query.name,
-   	 	debut: req.query.debut,
-   	 	actors: req.query.actors,
-   	 	getOnExist: true
-	};
-	client.createEntity(options, function (err, data) {
+    	res.send('There was an error in creating the entity.');
+  	} else {
+  		var options = {
+   	 		type: 'movies',
+   	 		name: req.query.name,
+   	 		debut: req.query.debut,
+   	 		actors: req.query.actors,
+   	 		getOnExist: true
+		};
+  	client.createEntity(options, function (err, data) {
     	if (err) {
-        //There was an error in creating the entity
-        res.send('There was an error in creating the entity.')
+        	//There was an error in creating the entity
+        	res.send('There was an error in creating the entity.')
     	} else {
-        //data will contain raw results from API call
-        //New entity has been added to the collection
-        var options = {
-          url: "https://api.usergrid.com/arainh/sandbox/movies"
-        };
+        	//data will contain raw results from API call
+        	//New entity has been added to the collection
+        	var options = {
+          		url: "https://api.usergrid.com/arainh/sandbox/movies"
+        	};
 
-        //Make a get request with the specific query parameters to the
-        //Apigee BaaS database and pull up the results as the response.
-        function callback(error, response, body) {
-          if (!error && response.statusCode == 200) {
-            var info = JSON.parse(body);
-            res.send(info);
-          }
-        }
-        request(options, callback);
+        	//Make a get request with the specific query parameters to the
+        	//Apigee BaaS database and pull up the results as the response.
+        	function callback(error, response, body) {
+          		if (!error && response.statusCode == 200) {
+            		var info = JSON.parse(body);
+        			res.send(info);
+          		}
+        	}
+        	request(options, callback);
     	}
-	});	
-  }
+  	});	
+ 	}
 })
 
 //DELETE AN EXISTING ENTITY
@@ -84,36 +84,36 @@ app.delete('/delete', function (req, res) {
 	var options = {
     	type:'movies',
     	name: req.query.name
-	}
-	client.getEntity(options, function(err, movie){
-    	if (err){
+   	}
+   client.getEntity(options, function(err, movie){
+      if (err){
         //error in retrieving entity
         res.send("Could not identify entity");
-    	} else {
+      } else {
           //Success in retrieving entity
           movie.destroy(function(err){
-    			 if (err){
-              //the entity could not be deleted
-        		  res.send('There was an error trying to delete entity.');
-    			 } else {
-        		  //The entity has been deleted
-        		  movie = null;
-        		  var options = {
-                url: "https://api.usergrid.com/arainh/sandbox/movies"
-              };
+    	  	if (err){
+              	//the entity could not be deleted
+        		res.send('There was an error trying to delete entity.');
+    		} else {
+        		//The entity has been deleted
+        		movie = null;
+        		var options = {
+                	url: "https://api.usergrid.com/arainh/sandbox/movies"
+              	};
 
-              //Make a get request with the specific query parameters to the
-              //Apigee BaaS database and pull up the results as the response.
-              function callback(error, response, body) {
-                if (!error && response.statusCode == 200) {
-                  var info = JSON.parse(body);
-                  res.send(info);
-                }
-              }
-              request(options, callback);
-    			 }
-			    });
-    	  }
+              	//Make a get request with the specific query parameters to the
+              	//Apigee BaaS database and pull up the results as the response.
+              	function callback(error, response, body) {
+                	if (!error && response.statusCode == 200) {
+                  		var info = JSON.parse(body);
+                  		res.send(info);
+                	}
+              	}
+              	request(options, callback);
+    		}
+			});
+    	}
 	});
 })
 
