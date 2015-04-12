@@ -1,3 +1,4 @@
+
 For this assignment I used Postman to test my proxy. 
 
 **To create an entity**
@@ -16,6 +17,8 @@ Example to add the entity with:
   I make a POST request in Postman with the url:
 
 >127.0.0.1:3000/create?name=Bridesmaids&debut=2011&actors=Kristen Wig, Mya Rudolf, Melissa McCarthy
+
+The response should show the entire list of movies in the collection including the newly added entity.
 
 
 **To retrieve an entity or a list of entities**
@@ -54,5 +57,7 @@ Example:
 >127.0.0.1:3000/delete?name=Mean Girls
 
 This will retrieve that enitity, and then delete it.
+
+The response should show the entire list of movies in the collection with the deleted movie now missing.
 
 
