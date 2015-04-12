@@ -49,7 +49,9 @@ I make a DELETE request in Postman with a query for a specific movie name such a
 
 >127.0.0.1:3000/delete?name=`<movie name>`
 
-Example: 27.0.0.1:3000/delete?name=Mean Girls
+Example: 
+
+>127.0.0.1:3000/delete?name=Mean Girls
 
 This will retrieve that enitity, and then delete it.
 
